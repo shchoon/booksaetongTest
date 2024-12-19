@@ -25,3 +25,12 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: 'NanumMyeongjo';
+    src: url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.eot');
+    src:url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.woff') format('woff');
+    font-style: normal;
+}
+}

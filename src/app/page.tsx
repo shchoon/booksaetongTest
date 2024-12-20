@@ -15,8 +15,10 @@ export default function Home() {
       <Counter />
       {data?.map((item: PlaceHolder) => (
         <div key={item.isbn} className="p-3">
-          <h1 className="font-bold">title: {item.title}</h1>
-          <div className="text-gray-500">text: {item.contents}</div>
+          <h1 className="font-styled text-xl font-bold">{item.title}</h1>
+          <div className="font-main text-base text-gray-500">
+            {item.contents}
+          </div>
           <Image
             alt="책 이미지"
             src={item.thumbnail}

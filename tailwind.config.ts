@@ -7,16 +7,6 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontSize: {
-      base: ["14px", "20px"],
-      lg: ["16px", "24px"],
-      xl: ["36px", "36px"],
-    },
-    fontWeight: {
-      normal: "400",
-      semibold: "600",
-      bold: "700",
-    },
     extend: {
       fontFamily: {
         main: ["PretendardVariable", "sans-serif"],
@@ -36,3 +26,7 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+
+// !!!!텍스크 크기는 아래 텍스트 사용하되 변경 및 추가 시 협의!!!!
+// - fontSize: sm, base, 3xl,
+// - fontWeight: nomal semi-bold, bold,

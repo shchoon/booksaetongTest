@@ -7,27 +7,26 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontSize: {
-      xs: ["12px", "16px"],
-      sm: ["14px", "20px"],
-      base: ["16px", "24px"],
-      lg: ["18px", "28px"],
-      xl: ["20px", "28px"],
-      "2xl": ["24px", "32px"],
-      "3xl": ["30px", "36px"],
-      },
     extend: {
+      fontFamily: {
+        main: ["PretendardVariable", "sans-serif"],
+        styled: ["NanumMyeongjo", "serif"],
+      },
       colors: {
-        "navbar": "#D9D9D9",
+        navbar: "D9D9D9",
         brown: {
-          1: '#fefae0',
-          2: 'eae0d5',
-          3: '#c6ac8f',
-          4: '#5e503f'
-        }
+          1: "#fefae0",
+          2: "eae0d5",
+          3: "#c6ac8f",
+          4: "#5e503f",
+        },
       },
     },
   },
   plugins: [],
 };
 export default config;
+
+// !!!!텍스크 크기는 아래 텍스트 사용하되 변경 및 추가 시 협의!!!!
+// - fontSize: sm, base, 3xl,
+// - fontWeight: nomal semi-bold, bold,

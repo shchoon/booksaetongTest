@@ -26,11 +26,16 @@ body {
   }
 }
 
-@layer base {
-  @font-face {
-    font-family: 'NanumMyeongjo';
-    src: url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.eot');
-    src:url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.woff') format('woff');
-    font-style: normal;
+@font-face {
+  font-family: "FontA";
+  src: url("/NanumMyeongjo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: "FontB";
+  src: url("/fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }

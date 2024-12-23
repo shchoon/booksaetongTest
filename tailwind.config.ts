@@ -7,9 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontSize: {
+      xs: ["12px", "16px"],
+      sm: ["14px", "20px"],
+      base: ["16px", "24px"],
+      lg: ["18px", "28px"],
+      xl: ["20px", "28px"],
+      "2xl": ["24px", "32px"],
+      "3xl": ["30px", "36px"],
+      },
     extend: {
       colors: {
-        "navbar": "D9D9D9",
+        "navbar": "#D9D9D9",
         brown: {
           1: '#fefae0',
           2: 'eae0d5',

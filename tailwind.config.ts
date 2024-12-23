@@ -13,7 +13,7 @@ const config: Config = {
         styled: ["NanumMyeongjo", "serif"],
       },
       colors: {
-        navbar: "D9D9D9",
+        navbar: "#D9D9D9",
         brown: {
           1: "#fefae0",
           2: "eae0d5",

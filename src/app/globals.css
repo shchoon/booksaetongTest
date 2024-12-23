@@ -28,9 +28,19 @@ body {
 
 @layer base {
   @font-face {
-    font-family: 'NanumMyeongjo';
-    src: url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.eot');
-    src:url('https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.woff') format('woff');
+    font-family: "NanumMyeongjo";
+    src: url("https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.eot");
+    src: url("https://cdn.jsdelivr.net/gh/wizfile/font/NanumMyeongjo.woff")
+      format("woff");
     font-style: normal;
+  }
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.flexCenter {
+  @apply flex items-center justify-center;
 }

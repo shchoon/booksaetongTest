@@ -15,16 +15,20 @@ const config: Config = {
       xl: ["20px", "28px"],
       "2xl": ["24px", "32px"],
       "3xl": ["30px", "36px"],
-      },
+    },
     extend: {
       colors: {
-        "navbar": "#D9D9D9",
+        navbar: "#D9D9D9",
         brown: {
-          1: '#fefae0',
-          2: 'eae0d5',
-          3: '#c6ac8f',
-          4: '#5e503f'
-        }
+          1: "#fefae0",
+          2: "eae0d5",
+          3: "#c6ac8f",
+          4: "#5e503f",
+        },
+        font: {
+          textPrimary: "#292524",
+          textSecondary: "#78716c",
+        },
       },
     },
   },

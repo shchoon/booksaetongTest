@@ -19,8 +19,8 @@ export default function Bookmark() {
     >
       <Image
         src={isBookmarked ? bookmarkFilled : bookmarkEmpty}
-        width={24}
-        height={24}
+        width={28}
+        height={28}
         alt={isBookmarked ? "북마크 삭제" : "북마크 추가"}
       />
     </div>

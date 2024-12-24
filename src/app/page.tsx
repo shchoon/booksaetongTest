@@ -1,7 +1,3 @@
 export default function Home() {
-
-  return (
-    <div className="w-screen">
-    </div>
-  );
+  return <div className="w-screen"></div>;
 }

@@ -21,6 +21,9 @@ const config: Config = {
           4: "#5e503f",
         },
       },
+      height: {
+        "minu-nav": "calc(100vh - 100px)",
+      },
     },
   },
   plugins: [],

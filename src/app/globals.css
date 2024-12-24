@@ -42,3 +42,32 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+/* 스크롤 바 제거 */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.flexCenter {
+  @apply flex items-center justify-center;
+}
+
+.searchDetail {
+  @apply w-3/12 text-font-textSecondary;
+}
+
+.searchList {
+  @apply w-7/12 rounded-lg border-2 border-neutral-200 bg-white;
+}

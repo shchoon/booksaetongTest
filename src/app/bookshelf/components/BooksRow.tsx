@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Book } from "@/types/common";
 import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
-import { CiCirclePlus } from "react-icons/ci";
 
 export default function BooksRow({ data }: { data: Book[] }) {
   console.log(data);
@@ -24,9 +23,7 @@ export default function BooksRow({ data }: { data: Book[] }) {
             />
           </div>
         ))}
-        <div className="mx-2 flex h-48 w-32 items-center justify-center rounded-2xl border-2 border-dashed border-[#d4d4d4]">
-          <CiCirclePlus size={50} color="#A3A3A3" />
-        </div>
+        <div className="mx-2 flex h-48 w-32 items-center justify-center rounded-2xl border-2 border-dashed border-[#d4d4d4]"></div>
       </div>
     </div>
   );

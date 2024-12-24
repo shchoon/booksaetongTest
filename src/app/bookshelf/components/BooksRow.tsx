@@ -4,35 +4,27 @@ import { useHorizontalScroll } from "@/hooks/useHorizontalScroll";
 import { CiCirclePlus } from "react-icons/ci";
 
 export default function BooksRow({ data }: { data: Book[] }) {
+  console.log(data);
+
   const { containerRef, handleWheel } = useHorizontalScroll();
   return (
     <div
-      className="scrollbar-hidden w-full overflow-x-auto scroll-smooth"
+      className="no-scrollbar mx-10 w-full overflow-x-auto scroll-smooth rounded-lg border-4"
       onWheel={handleWheel}
       ref={containerRef}
     >
-      <div className="h-100 mx-10 flex w-max border-2">
+      <div className="flex w-max p-6">
         {data?.map((item: Book) => (
-          <div key={item.isbn} className="relative m-2 h-40 w-28">
+          <div key={item.isbn} className="relative mx-2 h-48 w-32">
             <Image
               src={item.thumbnail}
               alt={item.title || "Thumbnail"}
               fill
-              className="object-cover"
+              sizes="(min-width: 640px) 50vw, 100vw"
             />
           </div>
         ))}
-        {data?.map((item: Book) => (
-          <div key={item.isbn} className="relative m-2 h-40 w-28">
-            <Image
-              src={item.thumbnail}
-              alt={item.title || "Thumbnail"}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ))}
-        <div className="m-2 flex h-40 w-28 items-center justify-center rounded-2xl border-2 border-dashed border-[#d4d4d4]">
+        <div className="mx-2 flex h-48 w-32 items-center justify-center rounded-2xl border-2 border-dashed border-[#d4d4d4]">
           <CiCirclePlus size={50} color="#A3A3A3" />
         </div>
       </div>

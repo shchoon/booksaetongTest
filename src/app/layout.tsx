@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ReactQueryClientProvider } from "@/src/provider/ReactQueryClient";
+import { ReactQueryClientProvider } from "@/provider/ReactQueryClient";
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const myFont = localFont({
   src: [
-    { path: "../../public/fonts/PretendardVariable.woff2" },
     { path: "../../public/fonts/NanumMyeongjo.woff" },
+    { path: "../../public/fonts/PretendardVariable.woff2" },
   ],
 });
 

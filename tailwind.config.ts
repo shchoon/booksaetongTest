@@ -24,6 +24,7 @@ const config: Config = {
           textPrimary: "#292524",
           textSecondary: "#78716c",
         },
+        border: "#A8A29E",
       },
     },
   },

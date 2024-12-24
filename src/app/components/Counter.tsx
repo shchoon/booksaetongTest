@@ -1,6 +1,6 @@
 "use client";
 
-import { useCountStore } from "@/stores/counter";
+import { useCountStore } from "@/src/stores/counter";
 
 export default function Page() {
   const { count, decrease, increase } = useCountStore((state) => state);

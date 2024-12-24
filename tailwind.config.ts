@@ -26,6 +26,9 @@ const config: Config = {
         },
         border: "#A8A29E",
       },
+      height: {
+        "minu-nav": "calc(100vh - 100px)",
+      },
     },
   },
   plugins: [],

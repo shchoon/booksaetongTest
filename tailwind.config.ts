@@ -20,6 +20,11 @@ const config: Config = {
           3: "#c6ac8f",
           4: "#5e503f",
         },
+        font: {
+          textPrimary: "#292524",
+          textSecondary: "#78716c",
+        },
+        border: "#A8A29E",
       },
       height: {
         "minu-nav": "calc(100vh - 100px)",

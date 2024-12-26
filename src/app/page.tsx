@@ -1,34 +1,32 @@
-"use client";
-import Image from "next/image";
-import { useQuery } from "@tanstack/react-query";
-
 import { todayTopic } from "@/libs/apis/todayTopic";
 import { todayAuthors } from "../libs/apis/todayAuthors";
-import Carusel from "./components/Carusel";
+import topics from "@/data/topics";
+import authors from "@/data/authors";
+import Search from "./components/home/Search";
+import Carusel from "./components/home/Carousel";
 
-import Search from "/public/icons/SearchWhite.png";
+export default async function Home() {
+  const randomIndex = Math.floor(Math.random() * 15);
 
-export default function Home() {
-  const booksOfTopic = useQuery({
-    queryKey: ["bookOfTopic"],
-    queryFn: () => todayTopic(),
-  });
-  const booksOfAuthor = useQuery({
-    queryKey: ["bookOfAuthor"],
-    queryFn: () => todayAuthors(),
-  });
+  const bookData = {
+    topic: await todayTopic(randomIndex),
+    author: await todayAuthors(randomIndex),
+  };
 
   return (
     <main className="mt-[121px] flex w-full flex-col items-center gap-4">
-      <div className="flex size-[150px] flex-col items-center justify-center rounded-full bg-black">
-        <Image src={Search} width={58} height={51} alt="Go to search" />
-        <span className="text-white">Go to search</span>
-      </div>
-      <div className="flex w-2/3 flex-col items-center justify-center gap-4 px-5 py-3">
-        <h1 className="w-full text-left">오늘의 토픽</h1>
-        {booksOfTopic.data && <Carusel books={booksOfTopic.data} />}
-        <h1 className="w-full text-left">오늘의 작가</h1>
-        {booksOfAuthor.data && <Carusel books={booksOfAuthor.data} />}
+      <Search />
+      <div className="flex w-2/3 flex-col justify-start gap-4 px-5 py-3">
+        <Carusel
+          books={bookData.topic}
+          type="토픽"
+          title={topics[randomIndex]}
+        />
+        <Carusel
+          books={bookData.author}
+          type="작가"
+          title={authors[randomIndex]}
+        />
       </div>
     </main>
   );

@@ -25,7 +25,7 @@ export default function Container({ id, items }: ContainerProps) {
       strategy={verticalListSortingStrategy}
       // strategy 아이템들을 놓는 방법 ex) vertical, horizontal
     >
-      <div ref={setNodeRef} className="m-2 h-[300px] flex-1 bg-gray-300 p-2">
+      <div ref={setNodeRef} className="m-2 flex-1 bg-gray-300 p-2">
         {items.map((id) => (
           <SortableItem key={id} id={id} />
         ))}

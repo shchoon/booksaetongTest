@@ -1,31 +1,23 @@
-import {
-  DragStartEvent,
-  DragOverEvent,
-  DragEndEvent,
-  UniqueIdentifier,
-} from "@dnd-kit/core";
+import { DragStartEvent, DragOverEvent, DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 
 /**
- * Finds the name of the container (object key) that an item belongs to.
+ * 아이템이 속해있는 컨테이너를 찾는 함수
  */
 export function findContainer(
-  id: UniqueIdentifier,
+  id: string,
   items: Record<string, string[]>,
 ): string | undefined {
-  const idStr = id.toString();
-
-  // If the idStr matches a container key directly, return that
-  if (idStr in items) {
-    return idStr;
+  if (id in items) {
+    // 아이템이 다른 컨테이너로 이동하는 경우
+    return id;
   }
 
-  // Otherwise, find which container array includes the idStr
-  return Object.keys(items).find((key) => items[key].includes(idStr));
+  return Object.keys(items).find((key) => items[key].includes(id)); // 아이템이 컨테이너 내에서 이동하는 경우
 }
 
 /**
- * Handle drag start
+ * 드래그 시작 : active 상태 추적
  */
 export function handleDragStart(
   event: DragStartEvent,
@@ -37,12 +29,11 @@ export function handleDragStart(
 }
 
 /**
- * Handle dragging over another container
+ * 드래그 중: 마우스가 다른 컨테이너 위로 이동할 때
  */
 export function handleDragOver(
   event: DragOverEvent,
   items: Record<string, string[]>,
-  // pass a callback that can update multiple containers in Zustand
   updateContainers: (updated: Partial<Record<string, string[]>>) => void,
 ) {
   const { active, over } = event;
@@ -58,16 +49,17 @@ export function handleDragOver(
   const activeItems = [...items[activeContainer]];
   const overItems = [...items[overContainer]];
 
-  // Remove item from old container
+  // 이전 컨테이너에서 아이템 제거
   const activeIndex = activeItems.indexOf(id);
   activeItems.splice(activeIndex, 1);
 
-  // Figure out insert index in new container
+  // 드래그 중인 아이템의 새 인덱스
   let newIndex = 0;
+
   const overIndex = overItems.indexOf(overId as string);
 
   if (overId && overId in items) {
-    // If dragging over the container itself, place at the end
+    // 컨테이너 영역에 있을 시 인덱스 -> 배열의 제일 끝
     newIndex = overItems.length;
   } else {
     const isBelowLastItem =
@@ -85,7 +77,7 @@ export function handleDragOver(
 }
 
 /**
- * Handle dropping in the final container
+ * 드랍 + 컨테이너 내에서 이동될 때
  */
 export function handleDragEnd(
   event: DragEndEvent,
@@ -94,8 +86,9 @@ export function handleDragEnd(
   setActiveId: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
   const { active, over } = event;
+
+  //컨테이너 밖에 드랍된 경우
   if (!over) {
-    // If dropped outside any container
     setActiveId(null);
     return;
   }
@@ -104,15 +97,14 @@ export function handleDragEnd(
   const overId = over.id.toString();
 
   const activeContainer = findContainer(id, items);
-  const overContainer = findContainer(overId, items);
 
-  // If the item was dropped in another container, handleDragOver took care of it
-  if (!activeContainer || !overContainer || activeContainer !== overContainer) {
+  // 활성화 된 컨테이너가 없는 경우
+  if (!activeContainer) {
     setActiveId(null);
     return;
   }
 
-  // If we are reordering within the same container
+  // 같은 컨테이네에서 아이템이 움직일 때
   const containerItems = items[activeContainer];
   const activeIndex = containerItems.indexOf(id);
   const overIndex = containerItems.indexOf(overId);

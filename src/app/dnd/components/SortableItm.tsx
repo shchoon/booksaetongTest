@@ -4,11 +4,7 @@ import React from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-interface SortableItemProps {
-  id: string;
-}
-
-const SortableItem: React.FC<SortableItemProps> = ({ id }) => {
+const SortableItem = ({ id }: { id: string }) => {
   const { listeners, setNodeRef, transform, transition } = useSortable({ id });
 
   return (

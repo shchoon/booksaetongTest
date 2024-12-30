@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useModalStore } from "@/stores/modal";
 import Modal from "./Modal";
 
-import { BookInfo } from "@/types/common";
+import { Book } from "@/types/common";
 
-export default function Carousel({ books }: { books: BookInfo[] }) {
+export default function Carousel({ books }: { books: Book[] }) {
   const { isOpen, openModal, book } = useModalStore();
 
   return (
@@ -15,7 +15,7 @@ export default function Carousel({ books }: { books: BookInfo[] }) {
         id="carousel"
         className="group-hover:pause animate-crausel1 absolute flex items-center"
       >
-        {books.map((book: BookInfo) => {
+        {books.map((book: Book) => {
           return (
             <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>
               <Image
@@ -34,7 +34,7 @@ export default function Carousel({ books }: { books: BookInfo[] }) {
         id="carousel"
         className="group-hover:pause animate-crausel2 absolute flex items-center"
       >
-        {books.map((book: BookInfo) => {
+        {books.map((book: Book) => {
           return (
             <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>
               <Image

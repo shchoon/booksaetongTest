@@ -4,11 +4,11 @@ import { createPortal } from "react-dom";
 import { useEffect } from "react";
 
 import { useModalStore } from "@/stores/modal";
-import { BookInfo } from "@/types/common";
+import { Book } from "@/types/common";
 
 import CloseIcon from "/public/icons/Cancel.png";
 
-export default function Modal({ detail }: { detail: BookInfo }) {
+export default function Modal({ detail }: { detail: Book }) {
   const { closeModal } = useModalStore();
 
   useEffect(() => {

@@ -1,20 +1,20 @@
 import { create } from "zustand";
-import { BookInfo } from "@/types/common";
+import { Book } from "@/types/common";
 
 interface States {
   isOpen: boolean;
-  book: BookInfo | undefined;
+  book: Book | undefined;
 }
 
 interface Actions {
-  openModal: (book: BookInfo) => void;
+  openModal: (book: Book) => void;
   closeModal: () => void;
 }
 
 export const useModalStore = create<States & Actions>((set) => ({
   isOpen: false,
   book: undefined,
-  openModal: (book: BookInfo) => {
+  openModal: (book: Book) => {
     set(() => ({ isOpen: true, book: book }));
   },
   closeModal: () => {

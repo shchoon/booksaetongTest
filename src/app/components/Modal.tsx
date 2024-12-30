@@ -13,14 +13,18 @@ export default function Modal({ detail }: { detail: Book }) {
 
   useEffect(() => {
     const body = document.body as HTMLBodyElement;
-    const carousels = document.querySelectorAll("#carousel");
+    const carousels = document.querySelectorAll(".carousel");
 
     body.classList.add("modal-open");
-    carousels.forEach((carousel) => carousel.classList.add("pause"));
+    if (carousels) {
+      carousels.forEach((carousel) => carousel.classList.add("pause"));
+    }
 
     return () => {
       body.classList.remove("modal-open");
-      carousels.forEach((carousel) => carousel.classList.remove("pause"));
+      if (carousels) {
+        carousels.forEach((carousel) => carousel.classList.remove("pause"));
+      }
     };
   }, []);
 

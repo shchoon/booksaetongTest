@@ -11,10 +11,7 @@ export default function Carousel({ books }: { books: Book[] }) {
 
   return (
     <section className="group relative z-0 flex h-[213px] w-full items-center overflow-hidden border-2 border-neutral-200">
-      <div
-        id="carousel"
-        className="group-hover:pause animate-crausel1 absolute flex items-center"
-      >
+      <div className="carousel group-hover:pause animate-crausel1 absolute flex items-center">
         {books.map((book: Book) => {
           return (
             <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>
@@ -30,10 +27,7 @@ export default function Carousel({ books }: { books: Book[] }) {
           );
         })}
       </div>
-      <div
-        id="carousel"
-        className="group-hover:pause animate-crausel2 absolute flex items-center"
-      >
+      <div className="carousel group-hover:pause animate-crausel2 absolute flex items-center">
         {books.map((book: Book) => {
           return (
             <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>

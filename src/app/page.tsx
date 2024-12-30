@@ -3,7 +3,7 @@ import { todayAuthors } from "../libs/apis/todayAuthors";
 import topics from "@/data/topics";
 import authors from "@/data/authors";
 import Search from "./components/home/Search";
-import Carusel from "./components/home/Carousel";
+import Carousel from "./components/Carousel";
 
 export default async function Home() {
   const randomIndex = Math.floor(Math.random() * 15);
@@ -17,16 +17,16 @@ export default async function Home() {
     <main className="mt-[121px] flex w-full flex-col items-center gap-4">
       <Search />
       <div className="flex w-2/3 flex-col justify-start gap-4 px-5 py-3">
-        <Carusel
-          books={bookData.topic}
-          type="토픽"
-          title={topics[randomIndex]}
-        />
-        <Carusel
-          books={bookData.author}
-          type="작가"
-          title={authors[randomIndex]}
-        />
+        <div className="flex items-center gap-7">
+          <h1 className="text-2xl font-bold">오늘의 주제</h1>
+          <h3 className="text-xl font-semibold">{topics[randomIndex]}</h3>
+        </div>
+        <Carousel books={bookData.topic} />
+        <div className="flex items-center gap-7">
+          <h1 className="text-2xl font-bold">오늘의 작가</h1>
+          <h3 className="text-xl font-semibold">{authors[randomIndex]}</h3>
+        </div>
+        <Carousel books={bookData.author} />
       </div>
     </main>
   );

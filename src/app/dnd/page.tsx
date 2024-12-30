@@ -23,6 +23,7 @@ import {
   handleDragOver,
   handleDragEnd,
 } from "@/libs/dnd/dragHelper";
+import Spinner from "./components/Spinner";
 
 export default function Dnd() {
   // Zustand store state
@@ -49,7 +50,7 @@ export default function Dnd() {
   };
 
   return (
-    <div className="flex flex-row">
+    <div className="h-minu-nav flex flex-row">
       {root.length ? (
         <DndContext
           sensors={sensors}
@@ -72,7 +73,7 @@ export default function Dnd() {
         </DndContext>
       ) : (
         <div className="flex h-full w-full items-center justify-center">
-          <div className="border-grey-500 h-8 w-8 animate-spin rounded-full border-4 border-solid border-t-transparent"></div>
+          <Spinner size="md" />
         </div>
       )}
     </div>

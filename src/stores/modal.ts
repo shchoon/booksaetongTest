@@ -1,16 +1,23 @@
 import { create } from "zustand";
+import { BookInfo } from "@/types/common";
 
 interface States {
-  modalState: boolean;
+  isOpen: boolean;
+  book: BookInfo | undefined;
 }
 
 interface Actions {
-  openModal: () => void;
+  openModal: (book: BookInfo) => void;
   closeModal: () => void;
 }
 
 export const useModalStore = create<States & Actions>((set) => ({
-  modalState: false,
-  openModal: () => set(() => ({ modalState: true })),
-  closeModal: () => set(() => ({ modalState: false })),
+  isOpen: false,
+  book: undefined,
+  openModal: (book: BookInfo) => {
+    set(() => ({ isOpen: true, book: book }));
+  },
+  closeModal: () => {
+    set(() => ({ isOpen: false, book: undefined }));
+  },
 }));

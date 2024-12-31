@@ -3,7 +3,7 @@ import { todayAuthors } from "../libs/apis/todayAuthors";
 import topics from "@/data/topics";
 import authors from "@/data/authors";
 import Search from "./components/home/Search";
-import Carousel from "./components/Carousel";
+import Carousel from "./components/home/Carousel";
 
 export default async function Home() {
   const randomIndex = Math.floor(Math.random() * 15);

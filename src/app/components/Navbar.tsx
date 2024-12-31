@@ -15,6 +15,7 @@ export default function Navbar() {
         className="cursor-pointer"
         src={Logo}
         sizes="100"
+        priority={true}
         alt="Logo"
         onClick={() => {
           router.push("/");

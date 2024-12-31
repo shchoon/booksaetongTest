@@ -1,47 +1,51 @@
 "use client";
 import Image from "next/image";
 
-import { bookInfo } from "@/types/common";
+import { useModalStore } from "@/stores/modal";
+import Modal from "../Modal";
 
-type IPops = {
-  books: bookInfo[];
-  type: string;
-  title: string;
-};
+import { Book } from "@/types/common";
 
-export default function Carousel(props: IPops) {
+export default function Carousel({ books }: { books: Book[] }) {
+  const { isOpen, openModal, book } = useModalStore();
+
   return (
-    <>
-      <div className="flex gap-7">
-        <h1 className="font-bold">오늘의 {props.type}</h1>
-        <h3 className="font-bold">{props.title}</h3>
+    <section className="group relative z-0 flex h-[213px] w-full items-center overflow-hidden border-2 border-neutral-200">
+      <div className="carousel group-hover:pause absolute flex animate-firstSlide items-center">
+        {books.map((book: Book) => {
+          return (
+            <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>
+              <Image
+                src={book.thumbnail}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+                alt={book.title}
+                onClick={() => {
+                  openModal(book);
+                }}
+              />
+            </div>
+          );
+        })}
       </div>
-      <section className="group relative flex h-[213px] w-full items-center overflow-hidden border-2 border-neutral-200">
-        <div className="group-hover:pause absolute flex animate-crausel1 items-center">
-          {props.books.map((book: bookInfo) => {
-            return (
-              <div
-                className="relative mr-7 h-[180px] w-[121px]"
-                key={book.isbn}
-              >
-                <Image src={book.thumbnail} fill alt={book.title} />
-              </div>
-            );
-          })}
-        </div>
-        <div className="group-hover:pause absolute flex animate-crausel2 items-center">
-          {props.books.map((book: bookInfo) => {
-            return (
-              <div
-                className="relative mr-7 h-[180px] w-[121px]"
-                key={book.isbn}
-              >
-                <Image src={book.thumbnail} fill alt={book.title} />
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    </>
+      <div className="carousel group-hover:pause absolute flex animate-secondSlide items-center">
+        {books.map((book: Book) => {
+          return (
+            <div className="relative mr-7 h-[180px] w-[121px]" key={book.isbn}>
+              <Image
+                src={book.thumbnail}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
+                alt={book.title}
+                onClick={() => {
+                  openModal(book);
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+      {book && isOpen && <Modal detail={book} />}
+    </section>
   );
 }

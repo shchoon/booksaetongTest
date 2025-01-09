@@ -1,15 +1,4 @@
-// import axiosInstance from "./axiosInstance";
 import topics from "@/data/topics";
-
-// export const todayTopic = async (randomIndex: number) => {
-//   const res = await axiosInstance.get("/v3/search/book", {
-//     params: {
-//       query: topics[randomIndex],
-//     },
-//   });
-
-//   return res.data.documents;
-// };
 
 export const todayTopic = async (randomIndex: number) => {
   const query = topics[randomIndex];
@@ -21,10 +10,11 @@ export const todayTopic = async (randomIndex: number) => {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
       },
-      next: { revalidate: 60 },
+      next: { revalidate: 10 },
     },
   );
 
   const data = await res.json();
+  // console.log(data.documents[0].title);
   return data.documents;
 };

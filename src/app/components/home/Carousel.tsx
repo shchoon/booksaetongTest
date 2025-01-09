@@ -7,6 +7,7 @@ import Modal from "../Modal";
 import { Book } from "@/types/common";
 
 export default function Carousel({ books }: { books: Book[] }) {
+  // console.log("carousel");
   const { isOpen, openModal, book } = useModalStore();
 
   return (

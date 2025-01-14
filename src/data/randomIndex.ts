@@ -7,6 +7,5 @@ export default function RandomIndex() {
     return Math.floor(secOfCT / 5);
   }
 
-  return Math.floor(Math.random() * 15);
   return secOfCT;
 }

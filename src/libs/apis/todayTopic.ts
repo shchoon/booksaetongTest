@@ -3,18 +3,18 @@ import topics from "@/data/topics";
 export const todayTopic = async (randomIndex: number) => {
   const query = topics[randomIndex];
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}v3/search/book?query=${encodeURIComponent(query)}`,
+    `${process.env.NEXT_PUBLIC_API_URL}v3/search/book?query=${query}`,
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
       },
-      next: { revalidate: 10 },
+      next: { revalidate: 30 },
     },
   );
 
   const data = await res.json();
-  // console.log(data.documents[0].title);
+
   return data.documents;
 };

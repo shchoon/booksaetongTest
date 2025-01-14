@@ -6,6 +6,7 @@ import bookmarkEmpty from "/public/icons/BookmarkEmpty.svg";
 import bookmarkFilled from "/public/icons/BookmarkFilled.svg";
 
 export default function Bookmark() {
+  console.log("client");
   const [isBookmarked, setIsBookmarked] = useState<boolean>();
 
   const toggleBookmark = () => {

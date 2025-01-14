@@ -7,6 +7,7 @@ import { todayAuthors } from "@/libs/apis/todayAuthors";
 import { todayTopic } from "@/libs/apis/todayTopic";
 
 export default async function Home() {
+  console.log(new Date().toLocaleTimeString());
   const randomIndex = RandomIndex();
   // const randomIndex = Math.floor(Math.random() * 15);
 

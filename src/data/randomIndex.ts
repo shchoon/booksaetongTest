@@ -3,6 +3,7 @@ export default function RandomIndex() {
   console.log("first");
 
   const secOfCT = Number(CD.slice(CD.length - 2, CD.length));
+  console.log(secOfCT);
 
   if (secOfCT > 14) {
     return Math.floor(secOfCT / 5);

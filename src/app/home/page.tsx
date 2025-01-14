@@ -8,7 +8,6 @@ import { todayTopic } from "@/libs/apis/todayTopic";
 
 export default async function Home() {
   const randomIndex = RandomIndex();
-  console.log("test");
 
   const data = {
     topic: await todayTopic(randomIndex),

@@ -8,6 +8,7 @@ import { todayTopic } from "@/libs/apis/todayTopic";
 
 export default async function Home() {
   const randomIndex = RandomIndex();
+  console.log(new Date().toLocaleTimeString());
   // const randomIndex = Math.floor(Math.random() * 15);
 
   const data = {

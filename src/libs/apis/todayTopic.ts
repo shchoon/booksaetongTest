@@ -6,7 +6,7 @@ export const todayTopic = async (randomIndex: number) => {
 
   // 오늘 오후 6시
   const todaySixPm = new Date();
-  todaySixPm.setHours(18, 12, 0); // 오후 6시로 설정
+  todaySixPm.setHours(18, 16, 0); // 오후 6시로 설정
   console.log(todaySixPm, now);
   console.log(Date.parse(todaySixPm.toString()) - Date.parse(now.toString()));
   const revalidationTime =

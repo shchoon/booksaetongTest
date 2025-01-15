@@ -5,6 +5,7 @@ const nextConfig = {
   //     dynamic: 10,
   //   },
   // },
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {

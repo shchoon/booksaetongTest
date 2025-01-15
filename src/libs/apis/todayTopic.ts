@@ -5,7 +5,7 @@ export const todayTopic = async (randomIndex: number) => {
 
   const min = now.getMinutes();
   const comparedTime = new Date();
-  comparedTime.setHours(18, min + 3, 0); // 오후 6시로 설정
+  comparedTime.setHours(10, min + 3, 0);
   console.log(Date.parse(comparedTime.toString()), Date.parse(now.toString()));
   const revalidationTime =
     (Date.parse(comparedTime.toString()) - Date.parse(now.toString())) / 1000;

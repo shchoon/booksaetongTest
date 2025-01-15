@@ -2,14 +2,23 @@ import topics from "@/data/topics";
 
 export const todayTopic = async (randomIndex: number) => {
   const now = new Date();
-  console.log(now.toISOString());
-  now.setHours(21, 0, 0);
-  console.log(now.toISOString());
+  const setTime = new Date();
+  setTime.setHours(12, 20, 0);
+
+  console.log(now, setTime);
+  console.log(Date.parse(now.toString()), Date.parse(setTime.toString()));
+
+  if (Date.parse(now.toString()) > Date.parse(setTime.toString())) {
+    setTime.setHours(36, 20, 0);
+  }
+
+  const revalidationTime =
+    (Date.parse(now.toString()) - Date.parse(setTime.toString())) / 1000;
 
   // const hour = now.getHours(),
   //   min = now.getMinutes();
   // const comparedTime = new Date();
-  console.log("now", now.toISOString(), "setTime", now.setHours(21, 0, 0));
+  // console.log("now", now.toISOString(), "setTime", now.setHours(12, 30, 0));
   // comparedTime.setHours(hour - 9, min + 5, 0);
   // console.log(Date.parse(comparedTime.toString()), Date.parse(now.toString()));
   // const revalidationTime =
@@ -26,7 +35,7 @@ export const todayTopic = async (randomIndex: number) => {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
       },
-      next: { revalidate: 1000 },
+      next: { revalidate: revalidationTime },
     },
   );
 

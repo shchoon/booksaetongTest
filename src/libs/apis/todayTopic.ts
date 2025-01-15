@@ -1,13 +1,12 @@
 import topics from "@/data/topics";
 
 export const todayTopic = async (randomIndex: number) => {
-  // 현재 시간
   const now = new Date();
 
-  // 오늘 오후 6시
   const min = now.getMinutes();
   const comparedTime = new Date();
   comparedTime.setHours(18, min + 3, 0); // 오후 6시로 설정
+  console.log(Date.parse(comparedTime.toString()), Date.parse(now.toString()));
   const revalidationTime =
     (Date.parse(comparedTime.toString()) - Date.parse(now.toString())) / 1000;
   console.log("comparedTime", comparedTime, "currnetTime", now);

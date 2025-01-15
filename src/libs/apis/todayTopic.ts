@@ -9,7 +9,7 @@ export const todayTopic = async (randomIndex: number) => {
   const comparedTime = new Date();
   comparedTime.setHours(18, min + 3, 0); // 오후 6시로 설정
   const revalidationTime =
-    (Date.parse(comparedTime.toString()) - Date.parse(now.toString())) / 100;
+    (Date.parse(comparedTime.toString()) - Date.parse(now.toString())) / 1000;
   console.log("comparedTime", comparedTime, "currnetTime", now);
   console.log("revalidationTime", revalidationTime);
 

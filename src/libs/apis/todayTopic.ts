@@ -3,18 +3,19 @@ import topics from "@/data/topics";
 export const todayTopic = async (randomIndex: number) => {
   const now = new Date();
   const setTime = new Date();
-  setTime.setHours(12, 21, 0);
+  setTime.setHours(12, 23, 0);
 
   console.log(now, setTime);
   console.log(Date.parse(now.toString()), Date.parse(setTime.toString()));
 
   if (Date.parse(now.toString()) > Date.parse(setTime.toString())) {
-    setTime.setHours(36, 21, 0);
+    setTime.setHours(36, 23, 0);
   }
 
   const revalidationTime =
     (Date.parse(setTime.toString()) - Date.parse(now.toString())) / 1000;
 
+  console.log(revalidationTime);
   // const hour = now.getHours(),
   //   min = now.getMinutes();
   // const comparedTime = new Date();

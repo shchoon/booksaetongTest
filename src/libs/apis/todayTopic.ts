@@ -5,19 +5,13 @@ export const todayTopic = async (randomIndex: number) => {
   const now = new Date();
 
   // 오늘 오후 6시
+  const min = now.getMinutes();
   const todaySixPm = new Date();
-  todaySixPm.setHours(18, 16, 0); // 오후 6시로 설정
-  console.log(todaySixPm, now);
-  console.log(Date.parse(todaySixPm.toString()) - Date.parse(now.toString()));
+  todaySixPm.setHours(18, min + 3, 0); // 오후 6시로 설정
   const revalidationTime =
-    Date.parse(todaySixPm.toString()) - Date.parse(now.toString());
-  // 두 시간의 차이를 밀리초 단위로 계산
-  // const diffInMilliseconds = todaySixPm - now;
+    (Date.parse(todaySixPm.toString()) - Date.parse(now.toString())) / 100;
 
-  // // 밀리초 단위를 초 단위로 변환
-  // const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
-
-  // console.log(`현재 시간과 오늘 오후 6시 사이의 차이: ${diffInSeconds}초`);
+  console.log(revalidationTime);
 
   const query = topics[randomIndex];
   const res = await fetch(

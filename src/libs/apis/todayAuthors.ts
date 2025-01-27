@@ -10,7 +10,7 @@ export const todayAuthors = async (randomIndex: number) => {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
       },
-      next: { revalidate: 300 },
+      next: { revalidate: 60 },
     },
   );
 

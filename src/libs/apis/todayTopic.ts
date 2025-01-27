@@ -1,19 +1,19 @@
 import topics from "@/data/topics";
 
 export const todayTopic = async (randomIndex: number) => {
-  const now = new Date();
-  const setTime = new Date();
-  setTime.setUTCHours(24, 0, 0);
+  // const now = new Date();
+  // const setTime = new Date();
+  // setTime.setUTCHours(24, 0, 0);
 
-  console.log("now", now, "setTime", setTime);
-  // console.log(Date.parse(now.toString()), Date.parse(setTime.toString()));
+  // console.log("now", now, "setTime", setTime);
+  // // console.log(Date.parse(now.toString()), Date.parse(setTime.toString()));
 
-  // if (Date.parse(now.toString()) > Date.parse(setTime.toString())) {
-  //   setTime.setHours(36, 23, 0);
-  // }
+  // // if (Date.parse(now.toString()) > Date.parse(setTime.toString())) {
+  // //   setTime.setHours(36, 23, 0);
+  // // }
 
-  const revalidationTime =
-    (Date.parse(setTime.toString()) - Date.parse(now.toString())) / 1000;
+  // const revalidationTime =
+  //   (Date.parse(setTime.toString()) - Date.parse(now.toString())) / 1000;
 
   // console.log(revalidationTime);
   // const hour = now.getHours(),
@@ -36,7 +36,7 @@ export const todayTopic = async (randomIndex: number) => {
         "Content-Type": "application/json",
         Authorization: `KakaoAK ${process.env.NEXT_PUBLIC_KAKAO_API_KEY}`,
       },
-      next: { revalidate: revalidationTime },
+      next: { revalidate: 60 },
     },
   );
 
